@@ -99,7 +99,7 @@ class TitleState extends MusicBeatState
 		}
 		#end
 		
-		#if (desktop && MODS_ALLOWED)
+		#if MODS_ALLOWED
 		var path = "mods/" + Paths.currentModDirectory + "/images/gfDanceTitle.json";
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)) {
@@ -278,7 +278,7 @@ class TitleState extends MusicBeatState
 		swagShader = new ColorSwap();
 			gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
 		
-		#if (desktop && MODS_ALLOWED)
+		#if MODS_ALLOWED
 		var path = "mods/" + Paths.currentModDirectory + "/images/gfDanceTitle.png";
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)){
