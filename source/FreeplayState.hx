@@ -194,6 +194,11 @@ class FreeplayState extends MusicBeatState
 		#else
 		var size:Int = 18;
 		#end
+			
+		#if android
+	        addVirtualPad(UP_DOWN, A_B);
+                #end
+		
 		super.create();
 	}
 
