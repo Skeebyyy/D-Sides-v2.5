@@ -99,9 +99,9 @@ class Character extends FlxSprite
 			default:
 				var characterPath:String = 'characters/' + curCharacter + '.json';
 				#if MODS_ALLOWED
-				var path:String = SUtil.getPath() + Paths.modFolders(characterPath);
+				var path:String = Paths.modFolders(characterPath);
 				if (!FileSystem.exists(path)) {
-					path = Paths.getPreloadPath(characterPath);
+					path = SUtil.getPath() + Paths.getPreloadPath(characterPath);
 				}
 
 				if (!FileSystem.exists(path))
@@ -132,7 +132,7 @@ class Character extends FlxSprite
 				if(rawJson==null && Assets.exists(path))rawJson = Assets.getText(path);
 				trace(Assets.exists(path), path);
 				if(rawJson==null){
-					path = Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json');
+					path = SUtil.getPath() + Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json');
 					rawJson = File.getContent(path);
 				}
 
