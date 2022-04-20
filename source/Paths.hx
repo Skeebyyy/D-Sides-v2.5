@@ -182,7 +182,7 @@ class Paths
 			return file;
 		}
 		#end
-		return 'SUtil.getPath() + assets/videos/$key.$VIDEO_EXT';
+		return SUtil.getPath() + 'assets/videos/$key.$VIDEO_EXT';
 	}
 
 	static public function sound(key:String, ?library:String):Dynamic
@@ -259,7 +259,7 @@ class Paths
 			return file;
 		}
 		#end
-		return 'SUtil.getPath() + assets/fonts/$key';
+		return SUtil.getPath() + 'assets/fonts/$key';
 	}
 
 	inline static public function fileExists(key:String, type:AssetType, ?ignoreMods:Bool = false, ?library:String)
@@ -367,7 +367,7 @@ class Paths
 
 	#if MODS_ALLOWED
 	inline static public function mods(key:String = '') {
-		return 'SUtil.getPath() + mods/' + key;
+		return SUtil.getPath() + 'mods/' + key;
 	}
 
 	inline static public function modsFont(key:String) {
@@ -409,7 +409,7 @@ class Paths
 				return fileToCheck;
 			}
 		}
-		return 'SUtil.getPath() + mods/' + key;
+		return SUtil.getPath() + 'mods/' + key;
 	}
 
 	static public function getModDirectories():Array<String> {
