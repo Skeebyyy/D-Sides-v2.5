@@ -105,39 +105,20 @@ class Character extends FlxSprite
 				}
 
 				if (!FileSystem.exists(path))
-
-
-
-				#else
+                                #else
 				var path:String = Paths.getPreloadPath(characterPath);
 				if (!Assets.exists(path))
 				#end
 				{
-					#if MODS_ALLOWED
-					if(!Assets.exists(path))
-					#end
 					path = SUtil.getPath() + Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
 				}
-
-				var rawJson:Null<String> = null;
-				try{
+				
 				#if MODS_ALLOWED
-					var rawJson = File.getContent(path);
+				var rawJson = File.getContent(path);
 				#else
 				var rawJson = Assets.getText(path);
 				#end
-			}catch(e:Any){
-				trace(e);
-			}
-				if(rawJson==null && Assets.exists(path))rawJson = Assets.getText(path);
-				trace(Assets.exists(path), path);
-				if(rawJson==null){
-					path = SUtil.getPath() + Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json');
-					rawJson = File.getContent(path);
-				}
-
-
-
+					
 				var json:CharacterFile = cast Json.parse(rawJson);
 				var spriteType = "sparrow";
 				//sparrow
@@ -159,10 +140,7 @@ class Character extends FlxSprite
 					spriteType = "packer";
 
 				}
-
-
-
-
+				
 				#if MODS_ALLOWED
 				var modAnimToFind:String = Paths.modFolders('images/' + json.image + '/Animation.json');
 				var animToFind:String = Paths.getPath('images/' + json.image + '/Animation.json', TEXT);
@@ -179,9 +157,6 @@ class Character extends FlxSprite
 					spriteType = "texture";
 
 				}
-
-
-
 
 				switch (spriteType){
 
