@@ -38,6 +38,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'Check this if you want to play with\na controller instead of using your Keyboard.',
 			'controllerMode',
 			'bool',
+			#if android true #else false #end);
 			false);
 		addOption(option);
 
