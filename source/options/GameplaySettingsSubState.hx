@@ -39,7 +39,6 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'controllerMode',
 			'bool',
 			#if android true #else false #end);
-			false);
 		addOption(option);
 
 		//I'd suggest using "Downscroll" as an example for making your own option since it is the simplest here
